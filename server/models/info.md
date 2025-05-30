@@ -1,8 +1,0 @@
-/models – for defining data schemas and ORMs/ODM models. We will use MongoDB as the primary database, along with an ODM like Mongoose. MongoDB is ideal for storing chat data (each message or conversation can be a document), character definitions (flexible JSON fields for personality, etc.), and user profiles with dynamic fields (like following list, coin balance). For example, we’ll have:
-User model – storing user info (username, email, hashed password if applicable, OAuth IDs, subscription tier, coin balance, etc.).
-Character model – storing character attributes (name, creatorId, description, categories/tags array, avatar image URL, sample dialogues, etc.). We might also store a reference to the AI persona prompt or memory for that character.
-Conversation model – representing an ongoing chat. Could store metadata (user, character, whether it's public or private) and either embed an array of message subdocuments or just have a separate Message collection.
-Message model – if separate, with fields: conversationId, sender (user or character), text content, type (text/image/audio), timestamp.
-Subscription model – (optional) to track subscription status if not just in User; but since we’ll rely on Stripe webhooks, we might store subscription state in User (like tier and expiry).
-Possibly Payment model – to log purchases or transactions for auditing.
-Follow model – or simply store arrays of followed creator IDs in User, and follower count in Creator (which could just be a User flagged as creator).

@@ -48,5 +48,5 @@ export class ChatStorage implements IChatStorage {
       chat.unreadCount = unreadCount;
     }
     return chat;
-  }
+  } 
 }

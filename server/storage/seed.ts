@@ -25,7 +25,6 @@ import type {
     //   verified: true,
     //   coins:    1800
     }
-    // …add the rest of your sample users here
   ];
   
   export const sampleCreators: InsertCreator[] = [
@@ -45,7 +44,6 @@ import type {
     //   totalMessages: 187000,
     //   badges:        ["Anime Expert", "Verified"]
     }
-    // …etc
   ];
   
   export const sampleCharacters: InsertCharacter[] = [

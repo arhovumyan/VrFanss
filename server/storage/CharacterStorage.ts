@@ -7,9 +7,8 @@ export class CharacterStorage implements ICharacterStorage {
   private characters = new Map<number, Character>();
   private nextId = 1;
 
-  constructor() {
-    // server/storage/CharacterStorage.ts
-sampleCharacters.forEach((c: InsertCharacter) => {
+constructor() {
+    sampleCharacters.forEach((c: InsertCharacter) => {
   const char: Character = {
     id:            this.nextId++,
     name:          c.name,
