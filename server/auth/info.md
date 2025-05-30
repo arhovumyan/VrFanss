@@ -1,0 +1,11 @@
+Authentication (Backend): We will implement OAuth2 login for Google and Discord, plus email/password:
+We can use Passport.js with the Google Strategy and Discord Strategy for OAuth
+github.com
+. The backend will have routes like /api/auth/google (to redirect to Google), /api/auth/google/callback (Passport handles callback, we then create or find the user and issue a session or JWT), similarly for Discord.
+Alternatively, since our frontend is separate, we might use NextAuth.js if we were in Next, but we’re doing Express API separate, so Passport or Grant or custom OAuth flows are needed. Passport is straightforward: it will provide us the Google profile (which includes verified email) – we then either create a new user record (with that email, marking that they signed up via Google, and store Google OAuth ID for reference) or if it exists, just authenticate.
+For email/password, we’ll have endpoints /api/auth/register and /api/auth/login. We must store hashed passwords (use bcrypt). On login, generate a JWT (JSON Web Token) or a session cookie. For simplicity, we might use JWT tokens stored in HttpOnly cookies so that the React app can remain stateless. Clerk (if we mimic it) often uses JWTs. But we can also do a classic express-session with a cookie if we prefer. JWT is good for a REST API and mobile compatibility.
+Security: Use HTTPS everywhere (HSTS is recommended like GF does
+hypestat.com
+). Use secure cookies for sessions, and implement CSRF protection for any state-changing requests if using cookies.
+Implementing user roles: We’ll have a field like user.subscriptionTier = "free" | "premium" | "deluxe" | "elite" and maybe an expiration date if not using recurring logic (but since Stripe will manage recurring, we can treat it as active until canceled, then downgrade at period end via webhook event). Alternatively, store subscriptionActive=true and rely on Stripe webhooks to update.
+If using Clerk instead of building auth, that’s also an option (Clerk would handle social login linking, etc.), but building it ourselves gives more control, especially since we want Discord which might require some dev setup.

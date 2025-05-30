@@ -1,0 +1,11 @@
+Chat Message Flow: When a user sends a message (via /api/chat/send for example):
+The request comes with the user’s message and conversation ID or character ID.
+The chatController.sendMessage will verify the user (auth middleware), check the user’s subscription (are they allowed more messages this month? If free, maybe check not exceeding daily limit or coin deduction).
+It will then append the message to the database (Message model) and update conversation state.
+Next, it calls aiService.generateChatCompletion(conversationId, userMessage) to get the AI’s reply. Inside this service, we gather the recent conversation history. If the model context window is limited (e.g., 4096 tokens), we may need to truncate older messages or summarize. For higher tiers with 8k or more, we can include more. If using GPT-4, we include system prompts like the character’s profile (“You are [name], [description]…”) and perhaps examples from the character definition, then the dialogue.
+The AI service either calls OpenAI’s API (with the conversation as prompt) or if using a local model, sends it to that model. We might use a streaming endpoint to stream tokens back.
+As the AI starts responding, we send the response back to the client. If using HTTP, we might do this via server-sent events (SSE) or keep the request open and stream chunks. If using WebSocket, we emit a message event for each chunk or the final message.
+Once the AI response is complete, we save it to the Messages DB as well (so the conversation is stored).
+The response is delivered to the UI, and the UI appends it in the chat view. If there’s an image or audio to be added, those would be separate calls or included as links in the message content.
+We decrement the user’s remaining message quota or tokens. For free users, we might require spending a coin per message after some free amount (though GF doesn’t explicitly do per-message coins, it’s mainly images tied to coins).
+We also possibly implement a mechanism for the AI to refuse or modify content if absolutely necessary (though in GF’s case, they mostly let it go through since it’s uncensored except illegal stuff). We might not need a strong moderation filter on text, just user-level reporting if something goes wrong.

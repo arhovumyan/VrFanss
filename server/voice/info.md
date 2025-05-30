@@ -1,0 +1,2 @@
+Voice Generation Flow: If the user requests a voice message from the AI:
+Similar flow: voiceService.synthesize(text, voiceId) calls TTS API. The result (audio file) is saved and a URL returned. The chat message would include this as an audio attachment. (The UI could have an audio player.)

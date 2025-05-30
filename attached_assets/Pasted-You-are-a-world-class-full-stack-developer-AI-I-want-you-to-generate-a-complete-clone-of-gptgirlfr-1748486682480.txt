@@ -1,0 +1,60 @@
+You are a world-class full-stack developer AI.  I want you to generate a complete clone of gptgirlfriend.online, end-to-end, including project scaffolding, configuration, and production-ready code.  
+
+**Project Requirements & Stack**  
+1. **Overall structure**  
+   - A mono-repo folder called `girlfriend-gpt-clone` with two subfolders:  
+     - `backend/` for the Node.js API  
+     - `frontend/` for the React Vite app  
+
+2. **Backend** (`backend/`)  
+   - **Tech**: Node.js 18+, Express, Mongoose, MongoDB  
+   - **Folders**:  
+     - `controllers/` (authController, chatController, imageController, paymentController, characterController)  
+     - `models/` (User, Character, Conversation, Message, Subscription)  
+     - `routes/` (authRoutes, chatRoutes, imageRoutes, paymentRoutes, characterRoutes)  
+     - `services/` (aiService for GPT chat, imageService for Stable Diffusion, paymentService for Stripe, authService for JWT & OAuth)  
+     - `middleware/` (authJwt, rateLimit, subscriptionCheck, errorHandler)  
+     - `config/` (db.js, stripe.js, openai.js, oauth.js)  
+   - **Features**:  
+     - **Auth**: email/password + Google OAuth + Discord OAuth via Passport.js, issue JWTs in HttpOnly cookies  
+     - **Subscriptions**: Stripe Checkout integration (plans: Premium, Deluxe, Elite), webhook handlers to upgrade/downgrade users, monthly coin allotment  
+     - **Chat**: REST + SSE or WebSocket streaming endpoint `/api/chat/send` that calls OpenAI GPT-4 (or GPT-3.5 for lower tiers) with system prompts built from Character data, saves messages in MongoDB  
+     - **Image Generation**: `/api/image/generate` endpoint that takes structured options (pose, style, NSFW flags), calls Stability AI’s REST API, charges user coins, stores image URLs  
+     - **Data Models**: User (email, oauth IDs, tier, coinBalance), Character (name, persona, tags, avatarUrl, creator), Conversation + Message subdocs  
+     - **Payments**: `/api/payment/checkout-session` to create Stripe sessions, `/api/payment/webhook` to handle events, one-time coin purchases  
+     - **Env vars**: Provide a `.env.example` with placeholders for `MONGODB_URI`, `JWT_SECRET`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `DISCORD_CLIENT_ID`, `DISCORD_CLIENT_SECRET`, `STRIPE_SECRET_KEY`, `OPENAI_API_KEY`, `STABILITY_API_KEY`  
+
+3. **Frontend** (`frontend/`)  
+   - **Tech**: React + TypeScript, Vite, Tailwind CSS v4, React Router, axios or fetch  
+   - **Folders**:  
+     - `src/components/` (Navbar, Sidebar, ChatBubble, ChatInput, CharacterCard, ImageGeneratorForm, SubscriptionTable, LoginForm, OAuthButtons, ProfileCard, Spinner)  
+     - `src/pages/` (HomePage, ExplorePage, CharacterPage, ChatPage, CreateCharacterPage, ImageGenPage, ProfilePage, SubscribePage, LoginPage)  
+     - `src/contexts/` (AuthContext to store user & tier)  
+     - `src/utils/` (apiClient.ts to wrap fetch + JWT, helpers)  
+     - `src/App.tsx` with `<Routes>` and layout, `main.tsx` bootstrap  
+   - **Features**:  
+     - **Public**: marketing Home with hero banners, feature highlights, “Create Free Account” CTA  
+     - **Explore**: category filters and grid of CharacterCards  
+     - **Character Profile**: details + “Chat Now” button  
+     - **Chat UI**: streaming chat bubbles, inline image/audio attachments, “Regenerate” button, handles SSE/WebSocket from `/api/chat/send`  
+     - **Image Generator**: form with dropdowns for style/pose/NSFW actions, calls `/api/image/generate`, displays results, “Insert in Chat” option  
+     - **Auth**: Login/Signup forms, OAuth “Continue with Google” & “Continue with Discord” buttons; protected routes redirect to login if not authenticated  
+     - **Subscription**: SubscribePage shows three Stripe plans with toggle for monthly/yearly, “Subscribe” buttons that redirect to Stripe Checkout; ProfilePage displays current tier and coin balance with “Buy More Coins” button  
+     - **Styling**: dark mode by default, responsive layout, Tailwind utilities everywhere  
+
+4. **Getting Started**  
+   - Provide `package.json` in each folder with all dependencies and scripts:  
+     - **Backend**: `npm install`, scripts: `start`, `dev` (nodemon)  
+     - **Frontend**: `npm install`, scripts: `dev`, `build`, `preview`  
+   - Include a top-level `README.md` with setup steps:  
+     1. Copy `.env.example` to `.env` in both `backend` and `frontend` (if needed)  
+     2. `cd backend && npm install && npm run dev`  
+     3. `cd frontend && npm install && npm run dev`  
+     4. Visit `http://localhost:5173` (frontend) and `http://localhost:3000` (API)  
+
+5. **Bonus Production Tips** (optional)  
+   - Add Dockerfiles for both backend and frontend  
+   - Include a simple NGINX config to serve the frontend and proxy `/api` to Express  
+   - Sketch out a PM2 or Kubernetes deployment manifest  
+
+Generate all files in place with full code content, from imports to exports, so I can run it immediately. Structure must be exactly as described, with relevant comments in each file to explain key sections.  

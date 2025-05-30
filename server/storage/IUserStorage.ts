@@ -1,0 +1,9 @@
+import type { User, InsertUser } from "@shared/schema";
+
+export interface IUserStorage {
+  getUser(id: number): Promise<User | undefined>;
+  getUserByUsername(username: string): Promise<User | undefined>;
+  getUserByEmail(email: string): Promise<User | undefined>;
+  createUser(user: InsertUser): Promise<User>;
+  updateUserCoins(id: number, coins: number): Promise<User | undefined>;
+}
