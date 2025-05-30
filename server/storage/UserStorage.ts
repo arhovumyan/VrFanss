@@ -1,5 +1,5 @@
 import { IUserStorage } from "./IUserStorage";
-import type { User, InsertUser } from "@shared/schema";
+import type { User, InsertUser } from "../db/models/users";
 import { sampleUsers } from "./seed";
 
 export class UserStorage implements IUserStorage {

@@ -1,5 +1,5 @@
 import { IFollowStorage } from "./IFollowStorage";
-import type { Follow, InsertFollow } from "@shared/schema";
+import type { Follow, InsertFollow } from "../db/models/follows";
 
 export class FollowStorage implements IFollowStorage {
   private follows = new Map<number, Follow>();

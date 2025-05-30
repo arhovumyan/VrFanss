@@ -1,5 +1,5 @@
 import { IChatStorage } from "./IChatStorage";
-import type { Chat, InsertChat } from "@shared/schema";
+import type { Chat, InsertChat } from "../db/models/chats";
 import { sampleChats } from "./seed";
 
 export class ChatStorage implements IChatStorage {

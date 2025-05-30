@@ -1,4 +1,4 @@
-import type { Character, InsertCharacter } from "@shared/schema";
+import type { Character, InsertCharacter } from "../db/models/characters";
 
 export interface ICharacterStorage {
   getCharacter(id: number): Promise<Character | undefined>;

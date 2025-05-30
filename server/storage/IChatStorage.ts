@@ -1,4 +1,4 @@
-import type { Chat, InsertChat } from "@shared/schema";
+import type { Chat, InsertChat } from "../db/models/chats";
 
 export interface IChatStorage {
   getChat(id: number): Promise<Chat | undefined>;

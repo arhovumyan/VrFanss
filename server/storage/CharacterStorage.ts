@@ -1,6 +1,6 @@
 
 import { ICharacterStorage } from "./ICharacterStorage";
-import { Character, InsertCharacter } from "@shared/schema";
+import { Character, InsertCharacter } from "../db/models/characters";
 import { sampleCharacters } from "./seed";
 
 export class CharacterStorage implements ICharacterStorage {
@@ -16,8 +16,6 @@ sampleCharacters.forEach((c: InsertCharacter) => {
     description:   c.description,
     avatar:        c.avatar,
     createdAt:     new Date(),
-
-    // coalesce undefined → null
     creatorId:     c.creatorId   ?? null,
     tags:          c.tags        ?? null,
     rating:        0,      // number|null
@@ -54,14 +52,10 @@ sampleCharacters.forEach((c: InsertCharacter) => {
       description:   insert.description,
       avatar:        insert.avatar,
       createdAt:     new Date(),
-  
-      // coalesce undefined → null
       creatorId:     insert.creatorId   ?? null,  
       tags:          insert.tags        ?? [],    // or ?? null if your type allows null
       isNsfw:        insert.isNsfw      ?? false, // or ?? null
       isPublic:      insert.isPublic    ?? true,  // or ?? null
-  
-      // initialize stats
       rating:        0,    
       messageCount:  0,
       followerCount: 0

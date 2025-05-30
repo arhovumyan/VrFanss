@@ -1,5 +1,5 @@
 import { ICreatorStorage } from "./ICreatorStorage";
-import type { Creator, InsertCreator } from "@shared/schema";
+import type { Creator, InsertCreator } from "../db/models/creators";
 import { sampleCreators } from "./seed";
 
 export class CreatorStorage implements ICreatorStorage {

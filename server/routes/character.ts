@@ -1,11 +1,5 @@
 import { Router } from "express";
-import {
-  listCharacters,
-  getCharacter,
-  listByCreator,
-  listFollowing,
-  createCharacter
-} from "../controllers/character";
+import {listCharacters,getCharacter,listByCreator,listFollowing,createCharacter} from "../controllers/character";
 
 const router = Router();
 

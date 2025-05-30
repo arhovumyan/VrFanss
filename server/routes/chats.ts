@@ -1,8 +1,5 @@
 import { Router } from "express";
-import {
-  listChatsByUser,
-  createChat
-} from "../controllers/chats";
+import {listChatsByUser,createChat} from "../controllers/chats";
 
 const router = Router();
 

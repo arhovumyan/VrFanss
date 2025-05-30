@@ -1,4 +1,4 @@
-import type { User, InsertUser } from "@shared/schema";
+import type { User, InsertUser } from "../db/models/users";
 
 export interface IUserStorage {
   getUser(id: number): Promise<User | undefined>;

@@ -1,10 +1,5 @@
 import { Router } from "express";
-import {
-  listFollowers,
-  listFollowing,
-  createFollow,
-  deleteFollow
-} from "../controllers/follows";
+import {listFollowers,listFollowing,createFollow,deleteFollow} from "../controllers/follows";
 
 const router = Router();
 

@@ -1,9 +1,5 @@
 import { Router } from "express";
-import {
-  listCreators,
-  getCreator,
-  getByUser
-} from "../controllers/creators";
+import {listCreators,getCreator,getByUser} from "../controllers/creators";
 
 const router = Router();
 

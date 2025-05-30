@@ -1,4 +1,4 @@
-import type { Follow, InsertFollow } from "@shared/schema";
+import type { Follow, InsertFollow } from "../db/models/follows";
 
 export interface IFollowStorage {
   getFollow(followerId: number, followedId: number): Promise<Follow | undefined>;

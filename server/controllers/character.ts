@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { storage } from "../storage";
 import { insertCharacterSchema } from "../db/models/characters";
 
+//searches for a character
 export async function listCharacters(req: Request, res: Response) {
   try {
     const limit  = parseInt(req.query.limit  as string) || 50;
@@ -13,18 +14,20 @@ export async function listCharacters(req: Request, res: Response) {
     res.status(500).json({ message: "Failed to fetch characters" });
   }
 }
-
+//pulls out a character
 export async function getCharacter(req: Request, res: Response) {
   try {
     const id = parseInt(req.params.id);
     const char = await storage.getCharacter(id);
+    //review this part on why is there 2 errors handlers
     if (!char) return res.status(404).json({ message: "Character not found" });
+    //here
     res.json(char);
   } catch {
     res.status(500).json({ message: "Failed to fetch character" });
   }
 }
-
+//list characters of a specific user
 export async function listByCreator(req: Request, res: Response) {
   try {
     const creatorId = parseInt(req.params.creatorId);
@@ -34,7 +37,7 @@ export async function listByCreator(req: Request, res: Response) {
     res.status(500).json({ message: "Failed to fetch characters by creator" });
   }
 }
-
+//lists the following of a user
 export async function listFollowing(req: Request, res: Response) {
   try {
     const userId = parseInt(req.params.userId);
@@ -44,7 +47,7 @@ export async function listFollowing(req: Request, res: Response) {
     res.status(500).json({ message: "Failed to fetch followed characters" });
   }
 }
-
+//creates a character
 export async function createCharacter(req: Request, res: Response) {
   try {
     const data = insertCharacterSchema.parse(req.body);
