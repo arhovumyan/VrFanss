@@ -1,0 +1,25 @@
+# 1) Build stage
+FROM node:18-alpine AS builder
+WORKDIR /app
+
+COPY package.json package-lock.json tsconfig.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+# 2) Runtime stage
+FROM node:18-alpine AS runner
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+# reuse node_modules from builder to avoid re-downloading
+COPY --from=builder /app/node_modules ./node_modules
+
+# copy everything in dist/, including the server bundle at dist/index.js
+COPY --from=builder /app/dist ./dist
+
+EXPOSE 5001
+
+# run the esbuild-generated server entry
+CMD ["node", "dist/index.js"]
+

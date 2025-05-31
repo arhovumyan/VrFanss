@@ -1,0 +1,29 @@
+# ─── Build Stage ─────────────────────────────────────────────────────────────
+FROM node:18-alpine AS builder
+WORKDIR /app
+
+# 1) Copy root manifests + config so tsconfigPaths & vite.config.ts are available
+COPY package.json package-lock.json tsconfig.json vite.config.ts ./
+
+# 2) Copy any shared code your client imports
+COPY shared/          ./shared/
+COPY attached_assets/ ./attached_assets/
+
+# 3) Copy your client source
+COPY client/ ./client/
+
+# 4) Install all dependencies
+RUN npm ci
+
+# 5) Build only the frontend
+#    This calls Vite (using your vite.config.ts) which will read the tsconfig paths
+RUN npx vite build
+
+# ─── Runtime Stage ───────────────────────────────────────────────────────────
+FROM nginx:stable-alpine AS runner
+
+# 6) Copy the built static files into nginx
+COPY --from=builder /app/dist/public /usr/share/nginx/html
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

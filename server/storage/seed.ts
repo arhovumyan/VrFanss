@@ -4,7 +4,7 @@ import type {
     InsertCreator,
     InsertCharacter,
     InsertChat
-  } from "@shared/schema";
+  } from "../db/models";
   
   export const sampleUsers: InsertUser[] = [
     {
