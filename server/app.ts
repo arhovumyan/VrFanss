@@ -24,7 +24,8 @@ export function buildApp(): express.Express {
   app.use("/api/creators",   creatorRouter);
   app.use("/api/users",      userRouter);
   app.use("/api/chats",      chatRouter);
-  app.use("/api/follows",    followRouter);
+  app.use("/api/follows", followRouter);
+
 
   // health-check
   app.get("/health", (_req, res) => res.sendStatus(204));

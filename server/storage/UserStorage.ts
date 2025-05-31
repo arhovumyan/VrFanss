@@ -32,8 +32,36 @@ export class UserStorage implements IUserStorage {
   async getUser(id: number) {
     return this.users.get(id);
   }
+  async deleteUser(id: number) {
+    const user = this.users.get(id);
+    if (user) {
+      this.users.delete(id);
+      return user;
+    }
+    return undefined;
+  }
+  async updateUser(id: number, update: Partial<InsertUser>) {
+    const user = this.users.get(id);
+    if (!user) return undefined;
+    const updatedUser: User = {
+      ...user,
+      ...update,
+      // ensure required fields are not overwritten
+      id:        user.id,
+      username:  user.username,
+      email:     user.email,
+      password:  user.password,
+      createdAt: user.createdAt
+    };
+    this.users.set(id, updatedUser);
+    return updatedUser;
+  } 
+
   async getUserByUsername(username: string) {
     return Array.from(this.users.values()).find(u => u.username === username);
+  }
+  async getUsers(limit: number, offset: number) {
+    return Array.from(this.users.values());
   }
   async getUserByEmail(email: string) {
     return Array.from(this.users.values()).find(u => u.email === email);

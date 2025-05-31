@@ -6,4 +6,7 @@ export interface IUserStorage {
   getUserByEmail(email: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
   updateUserCoins(id: number, coins: number): Promise<User | undefined>;
+  deleteUser(id: number): Promise<User | undefined>;
+  updateUser(id: number, update: Partial<InsertUser>): Promise<User | undefined>;
+  getUsers(limit?: number, offset?: number): Promise<User[]>;
 }

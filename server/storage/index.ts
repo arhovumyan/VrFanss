@@ -24,22 +24,22 @@ export const storage: IUserStorage &
                        IChatStorage &
                        IFollowStorage = {
   // user methods
+  getUsers:           userStore.getUsers.bind(userStore),
   getUser:            userStore.getUser.bind(userStore),
   getUserByUsername:  userStore.getUserByUsername.bind(userStore),
   getUserByEmail:     userStore.getUserByEmail.bind(userStore),
-  createUser:         userStore.createUser.bind(userStore),
+  createUser: userStore.createUser.bind(userStore),
+  updateUser: userStore.updateUser.bind(userStore),
+  deleteUser: userStore.deleteUser.bind(userStore),
   updateUserCoins:    userStore.updateUserCoins.bind(userStore),
 
   // character methods
   getCharacter:         characterStore.getCharacter.bind(characterStore),
   getCharacters:        characterStore.getCharacters.bind(characterStore),
-  getCharactersByCreator:
-                        characterStore.getCharactersByCreator.bind(characterStore),
-  getFollowedCharacters:
-                        characterStore.getFollowedCharacters.bind(characterStore),
+  getCharactersByCreator:characterStore.getCharactersByCreator.bind(characterStore),
+  getFollowedCharacters:characterStore.getFollowedCharacters.bind(characterStore),
   createCharacter:      characterStore.createCharacter.bind(characterStore),
-  updateCharacterStats:
-                        characterStore.updateCharacterStats.bind(characterStore),
+  updateCharacterStats: characterStore.updateCharacterStats.bind(characterStore),
 
   // creator methods
   getCreator:            creatorStore.getCreator.bind(creatorStore),

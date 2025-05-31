@@ -7,7 +7,7 @@ COPY package.json package-lock.json tsconfig.json vite.config.ts ./
 
 # 2) Copy any shared code your client imports
 COPY shared/          ./shared/
-COPY attached_assets/ ./attached_assets/
+# COPY attached_assets/ ./attached_assets/
 
 # 3) Copy your client source
 COPY client/ ./client/
