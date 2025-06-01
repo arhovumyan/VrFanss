@@ -1,5 +1,3 @@
-// server/storage/index.ts
-
 import { IUserStorage      } from "./IUserStorage";
 import { ICharacterStorage } from "./ICharacterStorage";
 import { ICreatorStorage   } from "./ICreatorStorage";
@@ -28,9 +26,9 @@ export const storage: IUserStorage &
   getUser:            userStore.getUser.bind(userStore),
   getUserByUsername:  userStore.getUserByUsername.bind(userStore),
   getUserByEmail:     userStore.getUserByEmail.bind(userStore),
-  createUser: userStore.createUser.bind(userStore),
-  updateUser: userStore.updateUser.bind(userStore),
-  deleteUser: userStore.deleteUser.bind(userStore),
+  createUser:         userStore.createUser.bind(userStore),
+  updateUser:         userStore.updateUser.bind(userStore),
+  deleteUser:         userStore.deleteUser.bind(userStore),
   updateUserCoins:    userStore.updateUserCoins.bind(userStore),
 
   // character methods

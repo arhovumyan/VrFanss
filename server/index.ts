@@ -1,18 +1,21 @@
-// server/index.ts
-
 import { createServer } from "http";
 import { buildApp }      from "./app";
 import { setupVite, serveStatic } from "./vite";
+import cors from "cors";
 
 (async () => {
   const app    = buildApp();
+
+  app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  }));
+
   const server = createServer(app);
 
   if (process.env.NODE_ENV === "development") {
-    // Hook up Vite HMR for your React client
     await setupVite(app, server);
   } else {
-    // In production, serve the built client out of /dist or /public
     serveStatic(app);
   }
 

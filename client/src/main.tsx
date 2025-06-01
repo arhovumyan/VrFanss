@@ -1,5 +1,13 @@
-import { createRoot } from "react-dom/client";
-import App from "./App";
-import "./index.css";
+// client/src/main.tsx
+import "./index.css";      // ← THIS ensures Vite sees and bundles your CSS
 
-createRoot(document.getElementById("root")!).render(<App />);
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+// (the rest of your React render logic)
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

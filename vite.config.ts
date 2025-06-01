@@ -3,11 +3,13 @@ import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import { fileURLToPath, URL } from "url";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   root: fileURLToPath(new URL("./client", import.meta.url)),
 
   plugins: [
+    tailwindcss(),
     react(),
     tsconfigPaths(),              
     runtimeErrorOverlay(),

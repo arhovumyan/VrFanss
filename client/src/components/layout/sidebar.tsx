@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { Heart, Home, Users, Star, MessageCircle, Plus, Image, Crown } from "lucide-react";
 
 const navigation = [
-  { name: "For You", href: "/for-you", icon: Home },
+  { name: "For You", href: "/ForYouPage", icon: Home },
   { name: "Following", href: "/following", icon: Users },
   { name: "Top Creators", href: "/creators", icon: Star },
   { name: "Recent Chats", href: "/recent-chats", icon: MessageCircle },

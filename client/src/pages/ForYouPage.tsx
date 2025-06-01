@@ -1,0 +1,44 @@
+import { useQuery } from "@tanstack/react-query";
+import { Skeleton } from "@/components/ui/skeleton";
+import CharacterShowcase from "@/pages/CharacterShowcase";
+import type { Character } from "@/constants";
+import "@/index.css";
+
+export default function ForYouPage() {
+  const { data: characters, isLoading } = useQuery<Character[]>({
+    queryKey: ["/api/characters"],
+  });
+
+  if (isLoading) {
+    return (
+      <div className="page-container">
+        <div className="section">
+          <Skeleton className="h-8 w-64 mb-2" />
+          <Skeleton className="h-4 w-96" />
+        </div>
+        <div className="grid-all">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="skeleton-container">
+              <Skeleton className="h-48 w-full rounded-lg" />
+              <Skeleton className="h-4 w-3/4" />
+              <Skeleton className="h-4 w-1/2" />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="page-container">
+      <div className="section">
+        <h1 className="page-heading">For You</h1>
+        <p className="page-subheading">
+          Discover personalized AI companions tailored to your interests
+        </p>
+      </div>
+
+      <CharacterShowcase />
+    </div>
+  );
+}

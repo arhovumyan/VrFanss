@@ -10,7 +10,7 @@ export async function listCharacters(req: Request, res: Response) {
     const chars  = await storage.getCharacters(limit, offset);
     res.json(chars);
   } catch (err) {
-    console.error("⚠️ listCharacters error:", err);
+    console.error(" listCharacters error:", err);
     res.status(500).json({ message: "Failed to fetch characters" });
   }
 }
