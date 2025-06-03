@@ -1,3 +1,4 @@
+
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "@/components/ui/skeleton";
 import CharacterShowcase from "@/pages/CharacterShowcase";
@@ -11,7 +12,7 @@ export default function ForYouPage() {
 
   if (isLoading) {
     return (
-      <div className="page-container">
+      <div className="page-container max-w-7xl mx-auto px-4">
         <div className="section">
           <Skeleton className="h-8 w-64 mb-2" />
           <Skeleton className="h-4 w-96" />
@@ -30,12 +31,9 @@ export default function ForYouPage() {
   }
 
   return (
-    <div className="page-container">
+    <div className="page-container mx-auto">
       <div className="section">
-        <h1 className="page-heading">For You</h1>
-        <p className="page-subheading">
-          Discover personalized AI companions tailored to your interests
-        </p>
+        <p className="page-subheading"></p>
       </div>
 
       <CharacterShowcase />

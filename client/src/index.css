@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 @layer base {
   * {
     @apply border-solid;
@@ -14,7 +15,7 @@
 }
 
 .character-card {
-  @apply w-70 h-96 p-4 border rounded-lg shadow bg-white dark:bg-zinc-900 text-black dark:text-white;
+  @apply w-70 h-96 border rounded-lg shadow bg-white dark:bg-zinc-900 text-black dark:text-white;
 }
 
 .character-image {
