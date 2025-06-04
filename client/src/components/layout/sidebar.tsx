@@ -1,244 +1,89 @@
-import React from "react";
-import {
-  IconButton,
-  Typography,
-  List,
-  ListItem,
-  ListItemPrefix,
-  ListItemSuffix,
-  Chip,
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-  Alert,
-  Input,
-  Drawer,
-  Card,
-} from "@material-tailwind/react";
-import {
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
-  PowerIcon,
-} from "@heroicons/react/24/solid";
-import {
-  ChevronRightIcon,
-  ChevronDownIcon,
-  CubeTransparentIcon,
-  MagnifyingGlassIcon,
-  Bars3Icon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
- 
-export function Sidebar() {
-  const [open, setOpen] = React.useState(0);
-  const [openAlert, setOpenAlert] = React.useState(true);
-  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
- 
-  interface HandleOpen {
-    (value: number): void;
-  }
+// src/components/layout/Sidebar2.tsx
+import { Link } from "wouter";                      // ← import your Link
+import { MoreVertical, ChevronLeft } from "lucide-react";
+import { createContext } from "react";
+import VrFansLogo from "@/constants/pics/VrFansLogo.png";
+import { SidebarItem } from "./SidebarItems";
+import { sidebarItems } from "@/constants/SidebarInfo";
 
-  const handleOpen: HandleOpen = (value) => {
-    setOpen(open === value ? 0 : value);
-  };
- 
-  const openDrawer = () => setIsDrawerOpen(true);
-  const closeDrawer = () => setIsDrawerOpen(false);
- 
+export const SidebarContext = createContext<{ expanded: boolean }>({ expanded: true });
+
+interface Sidebar2Props {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function Sidebar2({ isOpen, onClose }: Sidebar2Props) {
   return (
-    <>
-      <IconButton variant="text" size="lg" onClick={openDrawer}>
-        {isDrawerOpen ? (
-          <XMarkIcon className="h-8 w-8 stroke-2" />
-        ) : (
-          <Bars3Icon className="h-8 w-8 stroke-2" />
-        )}
-      </IconButton>
-      <Drawer open={isDrawerOpen} onClose={closeDrawer}>
-        <Card
-          color="transparent"
-          shadow={false}
-          className="h-[calc(100vh-2rem)] w-full p-4"
+    <aside
+      className={`
+        fixed top-0 left-0 bottom-0
+        w-64 
+        bg-black 
+        shadow-lg 
+        z-50 
+        transform 
+        ${isOpen ? "translate-x-0" : "-translate-x-full"} 
+        transition-transform duration-500 ease-in-out
+        flex flex-col
+      `}
+    >
+      {/* Logo + close arrow */}
+      <div className="p-4 pb-2 flex justify-between items-center">
+        <img
+          src={VrFansLogo}
+          alt="Logo"
+          className="w-13 transition-all duration-500 ease-out"
+        />
+        <button
+          onClick={onClose}
+          className="p-1.5 rounded-lg text-gray-100 hover:text-white"
         >
-          <div className="mb-2 flex items-center gap-4 p-4">
-            <img
-              src="https://docs.material-tailwind.com/img/logo-ct-dark.png"
-              alt="brand"
-              className="h-8 w-8"
-            />
-            <Typography variant="h5" color="blue-gray">
-              Sidebar
-            </Typography>
-          </div>
-          <div className="p-2">
-            <Input
-              icon={<MagnifyingGlassIcon className="h-5 w-5" />}
-              label="Search"
-              crossOrigin={undefined}
-            />
-          </div>
-          <List>
-            <Accordion
-              open={open === 1}
-              icon={
-                <ChevronDownIcon
-                  strokeWidth={2.5}
-                  className={`mx-auto h-4 w-4 transition-transform ${
-                    open === 1 ? "rotate-180" : ""
-                  }`}
-                />
-              }
-            >
-              <ListItem className="p-0" selected={open === 1}>
-                <AccordionHeader
-                  onClick={() => handleOpen(1)}
-                  className="border-b-0 p-3"
-                >
-                  <ListItemPrefix>
-                    <PresentationChartBarIcon className="h-5 w-5" />
-                  </ListItemPrefix>
-                  <Typography color="blue-gray" className="mr-auto font-normal">
-                    Dashboard
-                  </Typography>
-                </AccordionHeader>
-              </ListItem>
-              <AccordionBody className="py-1">
-                <List className="p-0">
-                  <ListItem>
-                    <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                    </ListItemPrefix>
-                    Analytics
-                  </ListItem>
-                  <ListItem>
-                    <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                    </ListItemPrefix>
-                    Reporting
-                  </ListItem>
-                  <ListItem>
-                    <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                    </ListItemPrefix>
-                    Projects
-                  </ListItem>
-                </List>
-              </AccordionBody>
-            </Accordion>
-            <Accordion
-              open={open === 2}
-              icon={
-                <ChevronDownIcon
-                  strokeWidth={2.5}
-                  className={`mx-auto h-4 w-4 transition-transform ${
-                    open === 2 ? "rotate-180" : ""
-                  }`}
-                />
-              }
-            >
-              <ListItem className="p-0" selected={open === 2}>
-                <AccordionHeader
-                  onClick={() => handleOpen(2)}
-                  className="border-b-0 p-3"
-                >
-                  <ListItemPrefix>
-                    <ShoppingBagIcon className="h-5 w-5" />
-                  </ListItemPrefix>
-                  <Typography color="blue-gray" className="mr-auto font-normal">
-                    E-Commerce
-                  </Typography>
-                </AccordionHeader>
-              </ListItem>
-              <AccordionBody className="py-1">
-                <List className="p-0">
-                  <ListItem>
-                    <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                    </ListItemPrefix>
-                    Orders
-                  </ListItem>
-                  <ListItem>
-                    <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                    </ListItemPrefix>
-                    Products
-                  </ListItem>
-                </List>
-              </AccordionBody>
-            </Accordion>
-            <hr className="my-2 border-blue-gray-50" />
-            <ListItem>
-              <ListItemPrefix>
-                <InboxIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Inbox
-              <ListItemSuffix>
-                <Chip
-                  value="14"
-                  size="sm"
-                  variant="ghost"
-                  color="blue-gray"
-                  className="rounded-full"
-                />
-              </ListItemSuffix>
-            </ListItem>
-            <ListItem>
-              <ListItemPrefix>
-                <UserCircleIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Profile
-            </ListItem>
-            <ListItem>
-              <ListItemPrefix>
-                <Cog6ToothIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Settings
-            </ListItem>
-            <ListItem>
-              <ListItemPrefix>
-                <PowerIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Log Out
-            </ListItem>
-          </List>
-          <Alert
-            open={openAlert}
-            className="mt-auto"
-            onClose={() => setOpenAlert(false)}
-          >
-            <CubeTransparentIcon className="mb-4 h-12 w-12" />
-            <Typography variant="h6" className="mb-1">
-              Upgrade to PRO
-            </Typography>
-            <Typography variant="small" className="font-normal opacity-80">
-              Upgrade to Material Tailwind PRO and get even more components,
-              plugins, advanced features and premium.
-            </Typography>
-            <div className="mt-4 flex gap-3">
-              <Typography
-                as="a"
-                href="#"
-                variant="small"
-                className="font-medium opacity-80"
-                onClick={() => setOpenAlert(false)}
-              >
-                Dismiss
-              </Typography>
-              <Typography
-                as="a"
-                href="#"
-                variant="small"
-                className="font-medium"
-              >
-                Upgrade Now
-              </Typography>
-            </div>
-          </Alert>
-        </Card>
-      </Drawer>
-    </>
+          <ChevronLeft size={20} />
+        </button>
+      </div>
+
+      {/* Menu items (flex-1 pushes next section to bottom) */}
+      <SidebarContext.Provider value={{ expanded: isOpen }}>
+        <ul className="flex-1 px-3 overflow-y-auto">
+          {sidebarItems.map((entry, idx) => {
+            if ((entry as any).divider) {
+              return <hr key={idx} className="my-3 border-gray-700" />;
+            }
+            
+
+            const item = (
+              <SidebarItem
+                icon={entry.icon}
+                text={entry.text ?? ""}
+                alert={entry.alert}
+              />
+            );
+
+            return entry.route ? (
+              <Link href={entry.route} key={idx} onClick={onClose}>
+                {item}
+              </Link>
+            ) : (
+              <div key={idx}>{item}</div>
+            );
+          })}
+        </ul>
+      </SidebarContext.Provider>
+
+      {/* User info pinned to the bottom */}
+      <div className="flex p-3 items-center">
+        <img
+          src="https://ui-avatars.com/api/?background=c7d2fe&amp;color=3730a3&amp;bold=true"
+          alt="User avatar"
+          className="w-10 h-10 rounded-md"
+        />
+        <div className="ml-3 leading-4 text-white">
+          <h4 className="font-semibold">John Doe</h4>
+          <span className="text-xs text-gray-400">johndoe@gmail.com</span>
+        </div>
+        <MoreVertical size={20} className="text-gray-400 ml-auto" />
+      </div>
+    </aside>
   );
 }

@@ -1,4 +1,4 @@
-
+// src/pages/ForYouPage.tsx
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "@/components/ui/skeleton";
 import CharacterShowcase from "@/pages/CharacterShowcase";
@@ -12,7 +12,7 @@ export default function ForYouPage() {
 
   if (isLoading) {
     return (
-      <div className="page-container max-w-7xl mx-auto px-4">
+      <div className="page-container mx-auto px-4 lg:px-0">
         <div className="section">
           <Skeleton className="h-8 w-64 mb-2" />
           <Skeleton className="h-4 w-96" />
@@ -31,8 +31,8 @@ export default function ForYouPage() {
   }
 
   return (
-    <div className="page-container mx-auto">
-      <div className="section">
+    <div className=" pt-10 pb-10 page-container mx-auto px-4 lg:px-0">
+      <div className="section ">
         <p className="page-subheading"></p>
       </div>
 

@@ -11,11 +11,11 @@
   }
 }
 .card-container {
-  @apply flex flex-row flex-wrap gap-6 p-4 justify-start; 
+  @apply flex flex-row flex-wrap gap-4 p-4 justify-start; 
 }
 
 .character-card {
-  @apply w-70 h-96 border rounded-lg shadow bg-white dark:bg-zinc-900 text-black dark:text-white;
+  @apply w-60 h-90 mx-auto max-w-7xl border rounded-lg shadow bg-white dark:bg-zinc-900 text-black dark:text-white;
 }
 
 .character-image {

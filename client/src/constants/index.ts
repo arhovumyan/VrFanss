@@ -225,30 +225,73 @@ export const characters: Character[] = [
   {
     id: 22,
     avatar: modelPic,
-    name: "Quill2",
-    description: "Quill is a bioengineered shapeshifter who changes form to infiltrate enemy strongholds.",
-    rating: "PG-13",
+    name: "Mira",
+    description: "Mira is an interstellar diplomat skilled at negotiating peace between warring planets.",
+    rating: "PG",
     nsfw: false,
-    chatCount: 9700,
+    chatCount: 9500,
   },
+  // 2. Zephyr (male, Random User)
   {
     id: 23,
     avatar: modelPic,
-    name: "Quill3",
-    description: "Quill is a bioengineered shapeshifter who changes form to infiltrate enemy strongholds.",
+    name: "Zephyr",
+    description: "Zephyr controls the winds and rides storms like waves across the sky.",
     rating: "PG-13",
     nsfw: false,
-    chatCount: 9700,
+    chatCount: 14300,
   },
+  // 3. Nova (female, Random User)
   {
     id: 24,
     avatar: modelPic,
-    name: "Quill4",
-    description: "Quill is a bioengineered shapeshifter who changes form to infiltrate enemy strongholds.",
+    name: "Nova",
+    description: "Nova is an ex-pilot haunted by memories of a mission that went terribly wrong.",
+    rating: "R",
+    nsfw: true,
+    chatCount: 20200,
+  },
+  // 4. Aria (female, Random User)
+  {
+    id: 25,
+    avatar: modelPic,
+    name: "Aria",
+    description: "Aria is a traveling bard whose songs can heal the wounded and uplift the brokenhearted.",
+    rating: "PG",
+    nsfw: false,
+    chatCount: 5400,
+  },
+  // 5. Orion (male, Random User)
+  {
+    id:  26,
+    avatar: modelPic,
+    name: "Orion",
+    description: "Orion is a starship captain on a quest to map uncharted galaxies and discover new civilizations.",
     rating: "PG-13",
     nsfw: false,
-    chatCount: 9700,
+    chatCount: 11800,
   },
+  // 6. Lyra (female, Random User)
+  {
+    id: 27,
+    avatar: modelPic,
+    name: "Lyra",
+    description: "Lyra is a techno-mage who blends ancient spells with cutting-edge cybernetics.",
+    rating: "PG-13",
+    nsfw: false,
+    chatCount: 7900,
+  },
+  // 7. Kai (male, Random User)
+  {
+    id: 28,
+    avatar: modelPic,
+    name: "Kai",
+    description: "Kai is a masked vigilante trying to uncover the city’s darkest secrets before they consume him.",
+    rating: "R",
+    nsfw: true,
+    chatCount: 11200,
+  },
+  // 8. Ember (female, Random User)
 ];
 
 export const navigation = [
@@ -272,4 +315,79 @@ export const categories = [
   { name: "Anime", emoji: "📺" },
   { name: "Game", emoji: "🎮" },
   { name: "Romantic", emoji: "💞" },
+];
+
+export interface ChatItem {
+  id: string;
+  name: string;
+  avatarUrl: string;
+  snippet: string;
+  unreadCount: number;
+  lastTime: string;
+}
+
+export const dummyChats: ChatItem[] = [
+  {
+    id: "sasha-hailey",
+    name: "Sasha and Hailey",
+    avatarUrl: modelPic, 
+    snippet:
+      "The house party was supposed to be a small gathering, but {{user}} was still shocked when they saw their ex, Hailey, and Haile...",
+    unreadCount: 1,
+    lastTime: "10:20",
+  },
+  {
+    id: "amy-goth-roommate",
+    name: "Amy the Goth Roommate",
+    avatarUrl: modelPic,
+    snippet:
+      'Amy smirks, her eyes following the trajectory of the smoke rings as they dissipate in the air. "Oh, I can already tell we\'re going t...',
+    unreadCount: 3,
+    lastTime: "May 28, 2025",
+  },
+  {
+    id: "eriss",
+    name: "Eriss",
+    avatarUrl: modelPic,
+    snippet:
+      'You ring the bell on the desk and a woman appears from behind the door. "...Are you calling for me?" The knight from a former e...',
+    unreadCount: 1,
+    lastTime: "May 25, 2025",
+  },
+  // …you can add more items here as needed…
+];
+
+export interface CharacterHeaderData {
+  avatarUrl: string;
+  title: string;
+  subtitle: string;
+}
+
+export interface ChatBubbleData {
+  avatarUrl: string;
+  speakerName: string;
+  message: string;
+}
+
+export const CHARACTER_HEADER: CharacterHeaderData = {
+  avatarUrl: modelPic,
+  title: "Sasha and Hailey",
+  subtitle:
+    "You and your ex-girlfriend attend the same party, and you spend the night sulking and watching her from afar. Her best friend, and your mortal enemy, notices and confronts you as you go to refill...",
+};
+
+export const CHAT_BUBBLES: ChatBubbleData[] = [
+  {
+    avatarUrl: modelPic,
+    speakerName: "Sasha",
+    message: `The house party was supposed to be a small gathering, but aro was still shocked when they saw their ex, Hailey, and Hailey’s best friend, Sasha, both attending.  
+aro and Hailey had been dating for a year before mutually breaking up, but their feelings never fully went away. Sasha on the other hand has always held a strong grudge against aro, a personal vendetta that was never truly explained.
+
+Sasha, sharply dressed in a white button-up, black pants, and a mischievous glint in her eyes, saunters up to them as they refill their drink. She smirks, leaning casually against the counter.
+
+“Well, well, well, if it isn’t aro! Didn’t expect to see your sulking face here. Feeling lonely watching Hailey flaunt her charm?” Sasha taunted, her voice dripping with sarcasm as she gestured towards aro’s ex.
+
+Sasha chuckles, crossing her arms and tilting her head, her tone laced with faux sympathy. “You know, aro, jealousy doesn’t suit you. But hey, I guess you’ve got plenty of time to practice those brooding skills since you spend every waking moment stalking their every move. Oh, look at her now, flirting shamelessly with that rando. Bet you wish you were them, huh?” She flashes them a smug grin, trying her best to provoke them.`,
+  },
+
 ];

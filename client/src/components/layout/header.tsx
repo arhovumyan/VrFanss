@@ -11,57 +11,59 @@ interface HeaderProps {
 
 export function Header({ sidebarOpen, onToggleSidebar }: HeaderProps) {
   return (
-    <header className="bg-card px-4 py-3 flex items-center justify-between">
-      <div className="flex items-center space-x-4">
-        {/* Always show the toggle button; swap icon based on sidebarOpen */}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black px-2 py-3 flex items-center justify-between">
+      <div className="flex items-center space-x-1">
+        {/* 1) Sidebar toggle button */}
         <button
           onClick={onToggleSidebar}
-          className="p-1.5 rounded-lg text-gray-100 hover:text-white"
+          className="p-2 rounded-lg text-gray-100 hover:text-white cursor-pointer hover:scale-110 transition-transform duration-150"
         >
           {sidebarOpen ? (
-            <ChevronLeft className="w-5 h-5" />
+            <Menu className="w-6 h-6" />
           ) : (
-            <Menu className="w-5 h-5" />
+            <Menu className="w-6 h-6" />
           )}
         </button>
 
-        <Link href="/for-you">
-          <Button variant="ghost" size="icon" className="mr-2">
-            <Home className="w-5 h-5" />
+        {/* 2) Home button */}
+        <Link href="/ForYouPage">
+          <Button variant="ghost" size="icon" className="mr-1 cursor-pointer hover:scale-110 transition-transform duration-150">
+            <Home className="w-6 h-6" />
           </Button>
         </Link>
 
-        <div className="relative max-w-md">
-          <Search
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground"
-          />
+        {/* 3) Search input with search icon */}
+        <div className="relative max-w-md flex items-center">
+          <Search className="ml-1 mr-1 w-4 h-5 text-muted-foreground" />
           <Input
             type="search"
             placeholder="Search characters..."
-            className="pl-10 border-0 w-64"
+            className="pl-2 border-0 w-56"
           />
         </div>
       </div>
 
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-2">
+        {/* 4) Coins button */}
         <Link href="/coins">
           <Button
             variant="outline"
             size="sm"
-            className="bg-amber-500/20 border-amber-500/30 hover:bg-amber-500/30"
+            className="bg-amber-500/20 border-amber-500/30 hover:bg-amber-500/30 cursor-pointer hover:scale-110 transition-transform duration-150"
           >
-            <Coins className="w-4 h-4 text-amber-400 mr-2" />
+            <Coins className="w-6 h-6 text-amber-400 mr-2" />
             <span>1,250</span>
           </Button>
         </Link>
 
-        <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
-            <User className="w-4 h-4" />
+        {/* 5) User avatar icon */}
+        <div className="flex items-center space-x-1">
+          <div className="w-10 h-10 bg-muted rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-150">
+            <User className="w-6 h-6" />
           </div>
-          <span className="text-sm font-medium">User</span>
+          <span className="text-sm font-medium pr-6">User</span>
         </div>
       </div>
     </header>
-  );
+);
 }

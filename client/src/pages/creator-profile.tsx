@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Users, Bot, MessageCircle, CalendarDays } from "lucide-react";
 import type { Creator, User, Character } from "@shared/schema";
 
+
 export default function CreatorProfilePage() {
   const { id } = useParams<{ id: string }>();
   

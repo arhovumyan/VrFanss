@@ -10,7 +10,7 @@ const navigation = [
   { name: "Premium", href: "/subscribe", icon: Crown },
 ];
 
-export function MobileNav() {
+export function Footer() {
   const [location] = useLocation();
 
   return (

@@ -4,18 +4,43 @@ import {
   User, 
   Settings, 
   BarChart, 
-  BarChart3 
+  BarChart3,
+  Bookmark,
+  MessageCircle,
+  Bot,
+  Image,
+  Flame,
+  HandCoins,
+  Goal,
+  BookHeart,
+  FileImage,
+
+
+  
 } from "lucide-react";
 
 export const sidebarItems = [
-  { icon: <LayoutDashboard size={20} />, text: "Dashboard", alert: true },
-  { icon: <BarChart3 size={20} />, text: "Analytics" },
-  { icon: <BarChart size={20} />, text: "Reports" },
+  { icon: <Bookmark size={20} />, text: "For You", route: "/ForYouPage", alert: true },
   { icon: <User size={20} />, text: "Profile" },
-  { icon: <Settings size={20} />, text: "Settings" },
-  { icon: <LayoutDashboard size={20} />, text: "Dashboard" },
-  // a divider
+  { icon: <MessageCircle size={20} />, text: "Chat", route: "/chat" },
+  { icon: <Bot size={20} />, text: "Characters" },
+  { icon: <Image size={20} />, text: "gllery" },
+  { icon: <Flame size={20} />, text: "Favorites" },
+  { icon: <HandCoins size={20} />, text: "Coins" },
+  { icon: <Goal size={20} />, text: "Membership" },
+    //divider
+  { divider: true },
+  { icon: <BookHeart size={20} />, text: "Create a Model" },
+  { icon: <FileImage size={20} />, text: "Generate images" },
   { divider: true },
   { icon: <LayoutDashboard size={20} />, text: "Dashboard" },
   { icon: <LayoutDashboard size={20} />, text: "Dashboard" },
+  { icon: <LayoutDashboard size={20} />, text: "Dashboard" },
+  { icon: <LayoutDashboard size={20} />, text: "Dashboard" },
+  { icon: <LayoutDashboard size={20} />, text: "Dashboard" },
+  { icon: <LayoutDashboard size={20} />, text: "Dashboard" },
+
+
+
 ];
+

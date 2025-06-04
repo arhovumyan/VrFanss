@@ -9,11 +9,15 @@ import CoinsPage from "@/pages/coins";
 import CharacterProfilePage from "@/pages/character-profile";
 import CharacterShowcase from "@/pages/CharacterShowcase";
 import NotFound from "@/pages/not-found";
+import RecentChats from "./pages/RecentChats";
+import ChatPage from "./pages/Chat/ChatPage";
 
 export default function Router() {
   return (
     <Switch>
       <Route path="/" component={ForYouPage} />
+      <Route path="testChat" component={ChatPage} />
+      <Route path="/chat" component={RecentChats} />
       <Route path="/ForYouPage" component={ForYouPage} />
       <Route path="/following" component={FollowingPage} />
       <Route path="/creators" component={CreatorsPage} />

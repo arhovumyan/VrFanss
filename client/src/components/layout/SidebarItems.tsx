@@ -1,6 +1,6 @@
 // src/components/layout/SidebarItem.tsx
 import { useContext } from "react";
-import { SidebarContext } from "./Sidebar2";
+import { SidebarContext } from "./Sidebar";
 import clsx from "clsx";
 
 type SidebarItemProps = {

@@ -1,50 +1,56 @@
 // src/components/layout/AppLayout.tsx
 import React, { useState } from "react";
-import Sidebar2 from "./Sidebar2";
+import Sidebar from "./Sidebar";
 import { Header } from "./Header";
-import { MobileNav } from "./Footer";
+import { Footer } from "./Footer";
 
 interface AppLayoutProps {
   children: React.ReactNode;
 }
 
 export default function AppLayout({ children }: AppLayoutProps) {
-  // 1) State for whether the sidebar is open
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* 
-        2) Sidebar2 is always fixed on top of everything else.
-           No need to shift the main content. 
-      */}
-      <Sidebar2
+    <div className="min-h-screen bg-black text-white relative">
+      {/* 1) Sidebar2 slides in/out above everything */}
+      <Sidebar
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
       />
 
-      {/* 
-        3) Header stays in the normal document flow.
-           It does not shift; the sidebar will simply overlay on top of it.
+      {/*
+        2) Overlay: only rendered when sidebarOpen is true.
+           It sits under the sidebar (z-40) and above the blurred content.
+           Clicking it will close the sidebar.
       */}
-      <Header
-        sidebarOpen={sidebarOpen}
-        onToggleSidebar={() => setSidebarOpen((open) => !open)}
-      />
+      {sidebarOpen && (
+        <div className="fixed inset-0 bg-transparent z-40"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
 
-      {/* 
-        4) Main content sits “underneath” the sidebar. 
-           We removed any ml-64 / ml-0 logic so it never shifts.
+      {/*
+        3) Wrap the rest of the app (header, main, footer) in a blur wrapper.
+           When sidebarOpen is true, apply `filter blur-sm`.
       */}
-      <main className="p-6">
-        {children}
-      </main>
+      <div className={`
+          transition-all duration-500 ease-in-out
+          ${sidebarOpen ? "filter blur-sm" : ""}
+        `}
+      >
+        {/* 4) Header is visible (blurred when sidebarOpen) */}
+        <Header
+          sidebarOpen={sidebarOpen}
+          onToggleSidebar={() => setSidebarOpen((open) => !open)}
+        />
 
-      {/* 
-        5) MobileNav also stays in place; if you want it above the sidebar, 
-           adjust z-index inside MobileNav. 
-      */}
-      <MobileNav sidebarOpen={sidebarOpen} />
+        {/* 5) Main content */}
+        <main className="p-6">{children}</main>
+
+        {/* 6) Footer always spans full width */}
+        <Footer />
+      </div>
     </div>
   );
 }
