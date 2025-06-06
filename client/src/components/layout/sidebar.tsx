@@ -1,4 +1,4 @@
-// src/components/layout/Sidebar2.tsx
+// src/components/layout/Sidebar.tsx
 import { Link } from "wouter";                      // ← import your Link
 import { MoreVertical, ChevronLeft } from "lucide-react";
 import { createContext } from "react";
@@ -13,7 +13,7 @@ interface Sidebar2Props {
   onClose: () => void;
 }
 
-export default function Sidebar2({ isOpen, onClose }: Sidebar2Props) {
+export default function Sidebar({ isOpen, onClose }: Sidebar2Props) {
   return (
     <aside
       className={`

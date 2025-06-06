@@ -1,7 +1,7 @@
 // src/pages/ForYouPage.tsx
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "@/components/ui/skeleton";
-import CharacterShowcase from "@/pages/CharacterShowcase";
+import CharacterShowcase from "@/components/CharacterShowcase";
 import type { Character } from "@/constants";
 import "@/index.css";
 

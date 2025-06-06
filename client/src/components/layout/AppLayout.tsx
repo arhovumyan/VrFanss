@@ -13,7 +13,6 @@ export default function AppLayout({ children }: AppLayoutProps) {
 
   return (
     <div className="min-h-screen bg-black text-white relative">
-      {/* 1) Sidebar2 slides in/out above everything */}
       <Sidebar
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}

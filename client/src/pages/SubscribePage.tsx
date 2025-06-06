@@ -108,7 +108,7 @@ export default function SubscribePage() {
     const hasHalfStar = rating % 1 >= 0.5;
     
     return (
-      <div className="flex items-center">
+      <div className="flex items-center ">
         {Array.from({ length: fullStars }).map((_, i) => (
           <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
         ))}
@@ -121,7 +121,7 @@ export default function SubscribePage() {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-6 pt-10 pb-10">
       {/* Hero Section */}
       <div className="text-center mb-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl p-8 border border-purple-500/30">
         <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">

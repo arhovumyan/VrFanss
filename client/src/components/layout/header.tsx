@@ -57,12 +57,14 @@ export function Header({ sidebarOpen, onToggleSidebar }: HeaderProps) {
         </Link>
 
         {/* 5) User avatar icon */}
+        <Link href="/user-profile/:id">
         <div className="flex items-center space-x-1">
           <div className="w-10 h-10 bg-muted rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-150">
             <User className="w-6 h-6" />
           </div>
           <span className="text-sm font-medium pr-6">User</span>
         </div>
+      </Link>
       </div>
     </header>
 );

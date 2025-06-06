@@ -4,9 +4,9 @@ import { cn } from "@/lib/utils";
 import { Home, Star, MessageCircle, Crown } from "lucide-react";
 
 const navigation = [
-  { name: "Home", href: "/for-you", icon: Home },
+  { name: "Home", href: "/ForYouPage", icon: Home },
   { name: "Creators", href: "/creators", icon: Star },
-  { name: "Chats", href: "/recent-chats", icon: MessageCircle },
+  { name: "Chats", href: "/chat", icon: MessageCircle },
   { name: "Premium", href: "/subscribe", icon: Crown },
 ];
 

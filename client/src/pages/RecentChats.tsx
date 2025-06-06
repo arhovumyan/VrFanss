@@ -15,7 +15,7 @@ export default function RecentChats() {
           {dummyChats.map((chat: ChatItem) => (
             <li
               key={chat.id}
-              onClick={() => navigate(`/chat/${chat.id}`)}
+              onClick={() => navigate(`/test-chat`)}
               className="w-full flex flex-col sm:flex-row items-start sm:items-center py-4 cursor-pointer hover:bg-gray-800 transition"
             >
               <img

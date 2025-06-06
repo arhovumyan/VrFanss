@@ -38,7 +38,7 @@ export default function CreatorsPage() {
   }
 
   return (
-    <div className="p-6">
+    <div className="p-6 pt-10">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">Top Creators</h1>
         <p className="text-muted-foreground">
