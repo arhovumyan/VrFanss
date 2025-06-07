@@ -15,7 +15,7 @@
 }
 
 .character-card {
-  @apply w-60 h-90 mx-auto max-w-7xl border rounded-lg shadow bg-white dark:bg-zinc-900 text-black dark:text-white;
+  @apply w-60 h-90 mx-auto max-w-7xl border border-orange-700 rounded-lg shadow bg-white dark:bg-zinc-900 text-black dark:text-white;
 }
 
 .character-image {

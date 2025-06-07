@@ -2,91 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Coins, Image, Video, Mic, Wand2, Plus, TrendingDown } from "lucide-react";
+import { coinPackages, recentTransactions, usageItems } from '@/constants/index'
 
 export default function CoinsPage() {
-  const coinPackages = [
-    {
-      name: "Starter Pack",
-      coins: 500,
-      price: 4.99,
-      popular: false,
-    },
-    {
-      name: "Value Pack",
-      coins: 1200,
-      price: 9.99,
-      popular: true,
-      savings: "Save 17%",
-    },
-    {
-      name: "Mega Pack",
-      coins: 2500,
-      price: 19.99,
-      popular: false,
-      savings: "Save 20%",
-    },
-  ];
-
-  const usageItems = [
-    {
-      icon: Image,
-      name: "Image Generation",
-      cost: 10,
-      color: "text-purple-400",
-    },
-    {
-      icon: Video,
-      name: "Video Generation",
-      cost: 25,
-      color: "text-blue-400",
-    },
-    {
-      icon: Mic,
-      name: "Voice Messages",
-      cost: 5,
-      color: "text-green-400",
-    },
-    {
-      icon: Wand2,
-      name: "Premium Features",
-      cost: "Variable",
-      color: "text-amber-400",
-    },
-  ];
-
-  const recentTransactions = [
-    {
-      icon: Image,
-      description: "Generated image for Luna",
-      amount: -10,
-      time: "2 hours ago",
-      color: "text-purple-400",
-    },
-    {
-      icon: Plus,
-      description: "Monthly coin bonus",
-      amount: 400,
-      time: "1 day ago",
-      color: "text-green-400",
-    },
-    {
-      icon: Video,
-      description: "Generated video for Aria",
-      amount: -25,
-      time: "3 days ago",
-      color: "text-blue-400",
-    },
-    {
-      icon: Coins,
-      description: "Purchased 1,200 coins",
-      amount: 1200,
-      time: "1 week ago",
-      color: "text-amber-400",
-    },
-  ];
-
   return (
-    <div className="p-6">
+    <div className="p-6 pt-10">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">Coins & Credits</h1>
         <p className="text-muted-foreground">
@@ -125,7 +45,6 @@ export default function CoinsPage() {
             >
               {pkg.popular && (
                 <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary">
-                  Popular
                 </Badge>
               )}
               
@@ -184,7 +103,7 @@ export default function CoinsPage() {
       </div>
 
       {/* Recent Transactions */}
-      <div>
+      <div className="mb-12">
         <h2 className="text-2xl font-bold mb-6">Recent Transactions</h2>
         <Card>
           <CardHeader>

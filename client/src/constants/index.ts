@@ -2,7 +2,7 @@ import modelPic from "./pics/model.jpg";
 
 import {
   Heart, Home, Users, Star, MessageCircle,
-  Plus, Image, Crown, X
+  Plus, Image,Coins,Video, Crown, X, Mic, Wand2
 } from "lucide-react";export interface Character {
   id: number;
   avatar: string;
@@ -390,4 +390,84 @@ Sasha, sharply dressed in a white button-up, black pants, and a mischievous glin
 Sasha chuckles, crossing her arms and tilting her head, her tone laced with faux sympathy. “You know, aro, jealousy doesn’t suit you. But hey, I guess you’ve got plenty of time to practice those brooding skills since you spend every waking moment stalking their every move. Oh, look at her now, flirting shamelessly with that rando. Bet you wish you were them, huh?” She flashes them a smug grin, trying her best to provoke them.`,
   },
 
+];
+
+export const recentTransactions = [
+  {
+    icon: Image,
+    description: "Generated image for Luna",
+    amount: -10,
+    time: "2 hours ago",
+    color: "text-purple-400",
+  },
+  {
+    icon: Plus,
+    description: "Monthly coin bonus",
+    amount: 400,
+    time: "1 day ago",
+    color: "text-green-400",
+  },
+  {
+    icon: Video,
+    description: "Generated video for Aria",
+    amount: -25,
+    time: "3 days ago",
+    color: "text-blue-400",
+  },
+  {
+    icon: Coins,
+    description: "Purchased 1,200 coins",
+    amount: 1200,
+    time: "1 week ago",
+    color: "text-amber-400",
+  },
+];
+export const coinPackages = [
+  {
+    name: "Starter Pack",
+    coins: 500,
+    price: 4.99,
+    popular: false,
+  },
+  {
+    name: "Value Pack",
+    coins: 1200,
+    price: 9.99,
+    popular: true,
+    savings: "Save 17%",
+  },
+  {
+    name: "Mega Pack",
+    coins: 2500,
+    price: 19.99,
+    popular: false,
+    savings: "Save 20%",
+  },
+];
+
+export const usageItems = [
+  {
+    icon: Image,
+    name: "Image Generation",
+    cost: 10,
+    color: "text-purple-400",
+  },
+  {
+    icon: Video,
+    name: "Video Generation",
+    cost: 25,
+    color: "text-blue-400",
+  },
+  {
+    icon: Mic,
+    name: "Voice Messages",
+    cost: 5,
+    color: "text-green-400",
+  },
+  {
+    icon: Wand2,
+    name: "Premium Features",
+    cost: "Variable",
+    color: "text-amber-400",
+  },
 ];

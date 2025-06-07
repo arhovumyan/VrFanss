@@ -45,12 +45,7 @@ export function SidebarItem({
         </span>
       )}
 
-      {/* 3) Alert dot—only if alert === true. Position it inside the same <li>. */}
-      {alert && expanded && (
-        <div className="h-2 w-2 bg-indigo-400 rounded-full flex-shrink-0" />
-      )}
-
-      {/* 4) If collapsed, show a small tooltip on hover */}
+      {/* 3) If collapsed, show a small tooltip on hover */}
       {!expanded && (
         <div
           className={clsx(

@@ -1,11 +1,11 @@
+import CharacterPage from "@/components/CharacterId";
+
 import React from 'react'
 
 const CharacterProfile = () => {
   return (
-      <div className='text-white pt-10'>
-          CharacterProfile
-      </div>
-  )
+    <CharacterPage/>
+    )
 }
 
 export default CharacterProfile

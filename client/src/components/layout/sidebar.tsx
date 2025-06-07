@@ -56,7 +56,6 @@ export default function Sidebar({ isOpen, onClose }: Sidebar2Props) {
               <SidebarItem
                 icon={entry.icon}
                 text={entry.text ?? ""}
-                alert={entry.alert}
               />
             );
 

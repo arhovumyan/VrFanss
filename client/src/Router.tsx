@@ -16,10 +16,14 @@ import FavoritesPage from "./pages/FavoritesPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import CharacterGallery from "./pages/CharacterGallery";
+import CreateCharacter from "./pages/CreateCharacter";
+import UserCharacters from "./pages/UserCharacters";
+
 
 export default function Router() {
   return (
     <Switch>
+      {/* <Route path="/character-profile" component={CharacterProfile} /> */}
       <Route path="/" component={ForYouPage} />
       <Route path="/test-chat" component={ChatPage} />
       <Route path="/chat" component={RecentChats} />
@@ -27,16 +31,18 @@ export default function Router() {
       <Route path="/following" component={FollowingPage} />
       <Route path="/creators" component={CreatorsPage} />
       <Route path="/creators/:id" component={CreatorProfilePage} />
-      <Route path="/character/:id" component={CharacterProfilePage} />
+      <Route path="/character/:id" component={CharacterProfile} />
       <Route path="/recent-chats" component={RecentChatsPage} />
       <Route path="/subscribe" component={SubscribePage} />
       <Route path="/coins" component={CoinsPage} />
       <Route path="/showcase" component={CharacterGallery} />
-      <Route path="/character-profile" component={CharacterProfile} />
       <Route path="/favorites" component={FavoritesPage} />
       <Route path="/not-found" component={NotFoundPage} />
       <Route path="/user-profile/:id" component={UserProfilePage} />
+      <Route path="/create-character" component={CreateCharacter} />
+      <Route path="/user-characters" component={UserCharacters} />
       <Route component={NotFound} />
+      
     </Switch>
   );
 }
