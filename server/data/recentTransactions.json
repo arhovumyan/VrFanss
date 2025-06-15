@@ -1,0 +1,30 @@
+[
+    {
+      "icon": "Image",
+      "description": "Generated image for Luna",
+      "amount": -10,
+      "time": "2 hours ago",
+      "color": "text-purple-400"
+    },
+    {
+      "icon": "Plus",
+      "description": "Monthly coin bonus",
+      "amount": 400,
+      "time": "1 day ago",
+      "color": "text-green-400"
+    },
+    {
+      "icon": "Video",
+      "description": "Generated video for Aria",
+      "amount": -25,
+      "time": "3 days ago",
+      "color": "text-blue-400"
+    },
+    {
+      "icon": "Coins",
+      "description": "Purchased 1,200 coins",
+      "amount": 1200,
+      "time": "1 week ago",
+      "color": "text-amber-400"
+    }
+  ]

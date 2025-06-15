@@ -2,7 +2,7 @@ import { pgTable, serial, integer, text, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 import { users } from "./users";
-import { characters } from "./characters";
+import { characters } from "./charactersOld";
 
 export const chats = pgTable("chats", {
   id: serial("id").primaryKey(),

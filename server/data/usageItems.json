@@ -1,0 +1,26 @@
+[
+    {
+      "icon": "Image",
+      "name": "Image Generation",
+      "cost": 10,
+      "color": "text-purple-400"
+    },
+    {
+      "icon": "Video",
+      "name": "Video Generation",
+      "cost": 25,
+      "color": "text-blue-400"
+    },
+    {
+      "icon": "Mic",
+      "name": "Voice Messages",
+      "cost": 5,
+      "color": "text-green-400"
+    },
+    {
+      "icon": "Wand2",
+      "name": "Premium Features",
+      "cost": "Variable",
+      "color": "text-amber-400"
+    }
+  ]

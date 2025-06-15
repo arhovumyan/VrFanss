@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { storage } from "../storage";
-import { insertCharacterSchema } from "../db/models/characters";
+import { insertCharacterSchema } from "../db/models/charactersOld";
 
 //searches for a character
 export async function listCharacters(req: Request, res: Response) {

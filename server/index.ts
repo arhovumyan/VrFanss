@@ -4,7 +4,7 @@ import { setupVite, serveStatic } from "./vite";
 import cors from "cors";
 
 (async () => {
-  const app    = buildApp();
+  const app = buildApp();
 
   app.use(cors({
     origin: "http://localhost:5173",

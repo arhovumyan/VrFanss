@@ -1,6 +1,6 @@
 
 import { ICharacterStorage } from "./ICharacterStorage";
-import { Character, InsertCharacter } from "../db/models/characters";
+import { Character, InsertCharacter } from "../db/models/charactersOld";
 import { sampleCharacters } from "./seed";
 
 export class CharacterStorage implements ICharacterStorage {

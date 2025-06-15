@@ -1,0 +1,22 @@
+[
+    {
+      "name": "Starter Pack",
+      "coins": 500,
+      "price": 4.99,
+      "popular": false
+    },
+    {
+      "name": "Value Pack",
+      "coins": 1200,
+      "price": 9.99,
+      "popular": true,
+      "savings": "Save 17%"
+    },
+    {
+      "name": "Mega Pack",
+      "coins": 2500,
+      "price": 19.99,
+      "popular": false,
+      "savings": "Save 20%"
+    }
+  ]

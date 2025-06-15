@@ -1,0 +1,4 @@
+[
+    { "name": "Create Character", "href": "/create-character", "icon": "Plus" },
+    { "name": "Generate Images",   "href": "/generate-images",  "icon": "Image" }
+  ]

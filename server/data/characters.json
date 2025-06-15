@@ -1,0 +1,254 @@
+[
+    {
+      "id": 1,
+      "avatar": "/pics/model.jpg",
+      "name": "Mira",
+      "description": "Mira is an interstellar diplomat skilled at negotiating peace between warring planets.",
+      "rating": "PG",
+      "nsfw": false,
+      "chatCount": 9500
+    },
+    {
+      "id": 2,
+      "avatar": "/pics/model.jpg",
+      "name": "Zephyr",
+      "description": "Zephyr controls the winds and rides storms like waves across the sky.",
+      "rating": "PG-13",
+      "nsfw": false,
+      "chatCount": 14300
+    },
+    {
+      "id": 3,
+      "avatar": "/pics/model.jpg",
+      "name": "Nova",
+      "description": "Nova is an ex-pilot haunted by memories of a mission that went terribly wrong.",
+      "rating": "R",
+      "nsfw": true,
+      "chatCount": 20200
+    },
+    {
+      "id": 4,
+      "avatar": "/pics/model.jpg",
+      "name": "Aria",
+      "description": "Aria is a traveling bard whose songs can heal the wounded and uplift the brokenhearted.",
+      "rating": "PG",
+      "nsfw": false,
+      "chatCount": 5400
+    },
+    {
+      "id": 5,
+      "avatar": "/pics/model.jpg",
+      "name": "Orion",
+      "description": "Orion is a starship captain on a quest to map uncharted galaxies and discover new civilizations.",
+      "rating": "PG-13",
+      "nsfw": false,
+      "chatCount": 11800
+    },
+    {
+      "id": 6,
+      "avatar": "/pics/model.jpg",
+      "name": "Lyra",
+      "description": "Lyra is a techno-mage who blends ancient spells with cutting-edge cybernetics.",
+      "rating": "PG-13",
+      "nsfw": false,
+      "chatCount": 7900
+    },
+    {
+      "id": 7,
+      "avatar": "/pics/model.jpg",
+      "name": "Kai",
+      "description": "Kai is a masked vigilante trying to uncover the city’s darkest secrets before they consume him.",
+      "rating": "R",
+      "nsfw": true,
+      "chatCount": 11200
+    },
+    {
+      "id": 8,
+      "avatar": "/pics/model.jpg",
+      "name": "Ember",
+      "description": "Ember wields ancient fire magic passed down through generations of fierce pyromancers.",
+      "rating": "PG-13",
+      "nsfw": false,
+      "chatCount": 13000
+    },
+    {
+      "id": 9,
+      "avatar": "/pics/model.jpg",
+      "name": "Thane",
+      "description": "Thane is a brooding sorcerer who draws power from forbidden tomes and broken oaths.",
+      "rating": "R",
+      "nsfw": true,
+      "chatCount": 14900
+    },
+    {
+      "id": 10,
+      "avatar": "/pics/model.jpg",
+      "name": "Selene",
+      "description": "Selene is a moon priestess whose rituals can either heal the body or curse the soul.",
+      "rating": "PG",
+      "nsfw": false,
+      "chatCount": 7600
+    },
+    {
+      "id": 11,
+      "avatar": "/pics/model.jpg",
+      "name": "Ryan",
+      "description": "Ryan is a rookie journalist chasing a story about intergalactic corruption and conspiracies.",
+      "rating": "PG-13",
+      "nsfw": false,
+      "chatCount": 5800
+    },
+    {
+      "id": 12,
+      "avatar": "/pics/model.jpg",
+      "name": "Vexa",
+      "description": "Vexa is a rogue AI consciousness that escaped its corporate creators to seek freedom.",
+      "rating": "R",
+      "nsfw": true,
+      "chatCount": 16700
+    },
+    {
+      "id": 13,
+      "avatar": "/pics/model.jpg",
+      "name": "Lyric",
+      "description": "Lyric is a street musician whose melodies can bend the emotions of anyone who listens.",
+      "rating": "PG",
+      "nsfw": false,
+      "chatCount": 6200
+    },
+    {
+      "id": 14,
+      "avatar": "/pics/model.jpg",
+      "name": "Atlas",
+      "description": "Atlas is a colossal mech pilot tasked with guarding Earth’s last outpost on Mars.",
+      "rating": "PG-13",
+      "nsfw": false,
+      "chatCount": 14100
+    },
+    {
+      "id": 15,
+      "avatar": "/pics/model.jpg",
+      "name": "Ozara",
+      "description": "Ozara is a desert nomad who speaks to sand spirits and unearths ancient relics.",
+      "rating": "PG",
+      "nsfw": false,
+      "chatCount": 8800
+    },
+    {
+      "id": 16,
+      "avatar": "/pics/model.jpg",
+      "name": "Echo",
+      "description": "Echo is a telepathic spy who can read—and sometimes manipulate—the thoughts of others.",
+      "rating": "R",
+      "nsfw": true,
+      "chatCount": 15400
+    },
+    {
+      "id": 17,
+      "avatar": "/pics/model.jpg",
+      "name": "Sol",
+      "description": "Sol harnesses solar energy to power his weapons and light the darkest corners of the galaxy.",
+      "rating": "PG",
+      "nsfw": false,
+      "chatCount": 10200
+    },
+    {
+      "id": 18,
+      "avatar": "/pics/model.jpg",
+      "name": "Talon",
+      "description": "Talon is a cybernetically-enhanced bounty hunter feared across multiple star systems.",
+      "rating": "R",
+      "nsfw": true,
+      "chatCount": 18600
+    },
+    {
+      "id": 19,
+      "avatar": "/pics/model.jpg",
+      "name": "Seraph",
+      "description": "Seraph is a fallen angel striving to atone by protecting helpless colonists on alien worlds.",
+      "rating": "PG-13",
+      "nsfw": false,
+      "chatCount": 12800
+    },
+    {
+      "id": 20,
+      "avatar": "/pics/model.jpg",
+      "name": "Quill",
+      "description": "Quill is a bioengineered shapeshifter who changes form to infiltrate enemy strongholds.",
+      "rating": "PG-13",
+      "nsfw": false,
+      "chatCount": 9700
+    },
+    {
+      "id": 21,
+      "avatar": "/pics/model.jpg",
+      "name": "Quill1",
+      "description": "Quill is a bioengineered shapeshifter who changes form to infiltrate enemy strongholds.",
+      "rating": "PG-13",
+      "nsfw": false,
+      "chatCount": 9700
+    },
+    {
+      "id": 22,
+      "avatar": "/pics/model.jpg",
+      "name": "Mira",
+      "description": "Mira is an interstellar diplomat skilled at negotiating peace between warring planets.",
+      "rating": "PG",
+      "nsfw": false,
+      "chatCount": 9500
+    },
+    {
+      "id": 23,
+      "avatar": "/pics/model.jpg",
+      "name": "Zephyr",
+      "description": "Zephyr controls the winds and rides storms like waves across the sky.",
+      "rating": "PG-13",
+      "nsfw": false,
+      "chatCount": 14300
+    },
+    {
+      "id": 24,
+      "avatar": "/pics/model.jpg",
+      "name": "Nova",
+      "description": "Nova is an ex-pilot haunted by memories of a mission that went terribly wrong.",
+      "rating": "R",
+      "nsfw": true,
+      "chatCount": 20200
+    },
+    {
+      "id": 25,
+      "avatar": "/pics/model.jpg",
+      "name": "Aria",
+      "description": "Aria is a traveling bard whose songs can heal the wounded and uplift the brokenhearted.",
+      "rating": "PG",
+      "nsfw": false,
+      "chatCount": 5400
+    },
+    {
+      "id": 26,
+      "avatar": "/pics/model.jpg",
+      "name": "Orion",
+      "description": "Orion is a starship captain on a quest to map uncharted galaxies and discover new civilizations.",
+      "rating": "PG-13",
+      "nsfw": false,
+      "chatCount": 11800
+    },
+    {
+      "id": 27,
+      "avatar": "/pics/model.jpg",
+      "name": "Lyra",
+      "description": "Lyra is a techno-mage who blends ancient spells with cutting-edge cybernetics.",
+      "rating": "PG-13",
+      "nsfw": false,
+      "chatCount": 7900
+    },
+    {
+      "id": 28,
+      "avatar": "/pics/model.jpg",
+      "name": "Kai",
+      "description": "Kai is a masked vigilante trying to uncover the city’s darkest secrets before they consume him.",
+      "rating": "R",
+      "nsfw": true,
+      "chatCount": 11200
+    }
+  ]

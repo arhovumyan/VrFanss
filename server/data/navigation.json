@@ -1,0 +1,6 @@
+[
+    { "name": "For You",      "href": "/ForYouPage",    "icon": "Home" },
+    { "name": "Following",    "href": "/following",     "icon": "Users" },
+    { "name": "Top Creators", "href": "/creators",      "icon": "Star" },
+    { "name": "Recent Chats", "href": "/recent-chats",  "icon": "MessageCircle" }
+  ]

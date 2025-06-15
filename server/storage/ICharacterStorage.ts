@@ -1,4 +1,4 @@
-import type { Character, InsertCharacter } from "../db/models/characters";
+import type { Character, InsertCharacter } from "../db/models/charactersOld";
 
 //each of these returns a Promise, so you can await them in your code (this will be useful when i add the db)
 export interface ICharacterStorage {

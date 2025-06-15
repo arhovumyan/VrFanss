@@ -30,6 +30,17 @@ export default defineConfig({
     },
   },
 
+  server: {
+    proxy: {
+      // Proxy API requests to the backend server
+      "/api": {
+        target: "http://localhost:5001",
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
+
   build: {
     outDir: fileURLToPath(new URL("./dist/public", import.meta.url)),
     emptyOutDir: true,
