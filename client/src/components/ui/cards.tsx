@@ -1,22 +1,21 @@
-// src/components/ui/cards.tsx
 import React from "react";
 import useSWR from "swr";
 
 type Character = {
-  id: number;
-  avatar: string;
-  name: string;
-  description: string;
-  rating?: string;
-  nsfw?: boolean;
+  id:         number;
+  name:       string;
+  description:string;
+  rating?:    string;
+  nsfw?:      boolean;
   chatCount?: number;
 };
 
-const fetcher = (url: string) =>
-  fetch(url).then((res) => {
-    if (!res.ok) throw new Error(`Fetch error ${res.status}`);
-    return res.json();
-  });
+// Fetcher for SWR (throws on non-OK)
+const fetcher = async (url: string) => {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Fetch error ${res.status}`);
+  return res.json() as Promise<Character[]>;
+};
 
 const Cards: React.FC = () => {
   const { data: characters, error } = useSWR<Character[]>(
@@ -24,14 +23,8 @@ const Cards: React.FC = () => {
     fetcher
   );
 
-  if (error)
-    return (
-      <div className="text-center p-4">
-        Failed to load characters: {error.message}
-      </div>
-    );
-  if (!characters)
-    return <div className="text-center p-4">Loading characters…</div>;
+  if (error) return <div className="text-center p-4">Failed to load: {error.message}</div>;
+  if (!characters) return <div className="text-center p-4">Loading characters…</div>;
 
   return (
     <div className="card-container grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 px-4 lg:px-0">
@@ -41,7 +34,7 @@ const Cards: React.FC = () => {
           className="character-card relative overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105"
         >
           <img
-            src={char.avatar}
+            src={`/api/characters/${char.id}/avatar`}
             alt={char.name}
             className="absolute inset-0 w-full h-full object-cover object-center"
           />

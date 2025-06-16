@@ -1,19 +1,33 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction} from "express";
 import { storage } from "../storage";
+import { CharacterModel } from "../db/models/CharacterModel";
 import { insertCharacterSchema } from "../db/models/charactersOld";
 
-//searches for a character
-export async function listCharacters(req: Request, res: Response) {
+
+// //searches for a character
+// export async function listCharacters(req: Request, res: Response) {
+//   try {
+//     const limit  = parseInt(req.query.limit  as string) || 50;
+//     const offset = parseInt(req.query.offset as string) || 0;
+//     const chars  = await storage.getCharacters(limit, offset);
+//     res.json(chars);
+//   } catch (err) {
+//     console.error(" listCharacters error:", err);
+//     res.status(500).json({ message: "Failed to fetch characters" });
+//   }
+// }
+
+export const listCharacters = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const limit  = parseInt(req.query.limit  as string) || 50;
-    const offset = parseInt(req.query.offset as string) || 0;
-    const chars  = await storage.getCharacters(limit, offset);
+    const chars = await CharacterModel
+      .find({}, { _id: 0, __v: 0 })    // project away _id and __v if you don't need them
+      .lean();                         // returns plain JS objects
     res.json(chars);
   } catch (err) {
-    console.error(" listCharacters error:", err);
-    res.status(500).json({ message: "Failed to fetch characters" });
+    next(err);
   }
-}
+};
+
 //pulls out a character
 export async function getCharacter(req: Request, res: Response) {
   try {
@@ -27,6 +41,7 @@ export async function getCharacter(req: Request, res: Response) {
     res.status(500).json({ message: "Failed to fetch character" });
   }
 }
+
 //list characters of a specific user
 export async function listByCreator(req: Request, res: Response) {
   try {
@@ -37,6 +52,7 @@ export async function listByCreator(req: Request, res: Response) {
     res.status(500).json({ message: "Failed to fetch characters by creator" });
   }
 }
+
 //lists the following of a user
 export async function listFollowing(req: Request, res: Response) {
   try {
@@ -47,6 +63,7 @@ export async function listFollowing(req: Request, res: Response) {
     res.status(500).json({ message: "Failed to fetch followed characters" });
   }
 }
+
 //creates a character
 export async function createCharacter(req: Request, res: Response) {
   try {
